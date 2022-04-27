@@ -1,4 +1,5 @@
-﻿// This my program thingy
+﻿// CSE 210 Tic-Tac-Toe Assignment - Samuel Adams
+
 
 char one = '1';
 char two = '2';
@@ -15,6 +16,70 @@ bool xwin = false;
 bool owin = false;
 
 Console.WriteLine($"{one} | {two} | {three}\n----------\n{four} | {five} | {six}\n----------\n{seven} | {eight} | {nine}");
+
+static bool CheckIfXWon(char one, char two, char three, char four, char five, char six, char seven, char eight, char nine){
+
+if (one == 'X' && two == 'X' && three == 'X'){
+    return true;
+}
+else if (four == 'X' && five == 'X' && six == 'X'){
+    return true;
+}
+else if (seven == 'X' && eight == 'X' && nine == 'X'){
+    return true;
+}
+else if (seven == 'X' && four == 'X' && one == 'X'){
+    return true;
+}
+else if (eight == 'X' && five == 'X' && two == 'X'){
+    return true;
+}
+else if (nine == 'X' && six == 'X' && three == 'X'){
+    return true;
+}
+else if (one == 'X' && five == 'X' && nine == 'X'){
+    return true;
+}
+else if (seven == 'X' && five == 'X' && three == 'X'){
+    return true;
+}
+else{
+    return false;
+}
+
+
+}
+
+static bool CheckIfOWon(char one, char two, char three, char four, char five, char six, char seven, char eight, char nine){
+
+if (one == 'O' && two == 'O' && three == 'O'){
+    return true;
+}
+else if (four == 'O' && five == 'O' && six == 'O'){
+    return true;
+}
+else if (seven == 'O' && eight == 'O' && nine == 'O'){
+    return true;
+}
+else if (seven == 'O' && four == 'O' && one == 'O'){
+    return true;
+}
+else if (eight == 'O' && five == 'O' && two == 'O'){
+    return true;
+}
+else if (nine == 'O' && six == 'O' && three == 'O'){
+    return true;
+}
+else if (one == 'O' && five == 'O' && nine == 'O'){
+    return true;
+}
+else if (seven == 'O' && five == 'O' && three == 'O'){
+    return true;
+}
+else{
+    return false;
+}
+}
 
 
 while (turn != 10 && xwin == false && owin == false){
@@ -110,57 +175,9 @@ default:{
 }
 
 
-if (one == 'X' && two == 'X' && three == 'X'){
-    xwin = true;
-}
-else if (four == 'X' && five == 'X' && six == 'X'){
-    xwin = true;
-}
-else if (seven == 'X' && eight == 'X' && nine == 'X'){
-    xwin = true;
-}
-else if (seven == 'X' && four == 'X' && one == 'X'){
-    xwin = true;
-}
-else if (eight == 'X' && five == 'X' && two == 'X'){
-    xwin = true;
-}
-else if (nine == 'X' && six == 'X' && three == 'X'){
-    xwin = true;
-}
-else if (one == 'X' && five == 'X' && nine == 'X'){
-    xwin = true;
-}
-else if (seven == 'X' && five == 'X' && three == 'X'){
-    xwin = true;
-}
 
-if (one == 'O' && two == 'O' && three == 'O'){
-    owin = true;
-}
-else if (four == 'O' && five == 'O' && six == 'O'){
-    owin = true;
-}
-else if (seven == 'O' && eight == 'O' && nine == 'O'){
-    owin = true;
-}
-else if (seven == 'O' && four == 'O' && one == 'O'){
-    owin = true;
-}
-else if (eight == 'O' && five == 'O' && two == 'O'){
-    owin = true;
-}
-else if (nine == 'O' && six == 'O' && three == 'O'){
-    owin = true;
-}
-else if (one == 'O' && five == 'O' && nine == 'O'){
-    owin = true;
-}
-else if (seven == 'O' && five == 'O' && three == 'O'){
-    owin = true;
-}
-
-
+xwin = CheckIfXWon(one, two, three, four, five, six, seven, eight, nine);
+owin = CheckIfOWon(one, two, three, four, five, six, seven, eight, nine);
 
 
 
@@ -186,3 +203,6 @@ else if (xwin == true){
 else{
     Console.WriteLine("\nTied game!");
 }
+
+
+
